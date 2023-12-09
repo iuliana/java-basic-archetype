@@ -1,0 +1,50 @@
+= Simple Archetype for creating a Java Maven project
+
+This project is a very simple toy project that I wanted to write for a while now. I always wanted to have my own Maven archetype. And now, here it is.
+
+Instructions on how to set up this project from scratch from https://maven.apache.org/guides/mini/guide-creating-archetypes.html[here].
+
+Observations:
+
+*1.*  Using this archetype, you can generate a Java `21` + Maven `4.0.0-alpha-8`, with a SDKMAN configuration and a `.gitignore` file. If you want to use different versions, run the generate command by adding the values for the extra-properties as shown below:
+
+[source, shell]
+----
+mvn archetype:generate \
+  -DarchetypeGroupId=org.base \
+  -DarchetypeArtifactId=java-basic-archetype \
+  -DarchetypeVersion=1.0.0 \
+  -DgroupId=org.eng \
+  -DartifactId=eng-sandbox \
+  -javaVersion=22 \  # Java version to configure in pom.xml
+  -DjdkVersion=22.0.1-amzn \  # JDK version to configure in .sdkmanrc (must be installed locally)
+  -DmvnVersion=4.0.0-alpha-9 \  # Maven version to configure in .sdkmanrc (must be installed locally)
+  -DinteractiveMode=false
+----
+
+*2.* When including files from the root of your archetype project, make sure to exclude the source files and the `pom.xml` in the `fileSet` configuration. Not doing so, leads to very weird generation behaviour.
+
+[source, xml]
+----
+<fileSet encoding="UTF-8">
+  <directory/>
+  <excludes>
+    <exclude>src/**</exclude>
+    <exclude>pom.xml</exclude>
+  </excludes>
+  <includes>
+    <include>.gitignore</include>
+    <include>.sdkmanrc</include>
+    <include>README.adoc</include>
+  </includes>
+</fileSet>
+----
+
+*3.* Feel free to clone, enrich and use. To test it as it is, first build it using:
+
+[source, shell]
+----
+mvn  # it has default goals [clean install] set
+----
+
+I hope you find it useful. Enjoy!

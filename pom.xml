@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.base</groupId>
-  <artifactId>base-archetype</artifactId>
+  <artifactId>java-basic-archetype</artifactId>
   <version>1.0.0</version>
   <packaging>maven-archetype</packaging>
 
-  <name>base-archetype</name>
+  <name>java-basic-archetype</name>
   <description>A template for the most simple Java project</description>
   <url>https://maven.apache.org</url>
 
@@ -21,6 +21,7 @@
   </properties>
 
   <build>
+    <defaultGoal>clean install</defaultGoal>
     <extensions>
       <extension>
         <groupId>org.apache.maven.archetype</groupId>

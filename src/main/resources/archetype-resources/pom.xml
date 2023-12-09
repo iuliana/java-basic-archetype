@@ -11,8 +11,8 @@
   <url>https://iuliana-cosmina.com</url>
 
   <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.source>${javaVersion}</maven.compiler.source>
+    <maven.compiler.target>${javaVersion}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <logback.version>1.4.14</logback.version>
@@ -21,6 +21,7 @@
 
   <build>
     <finalName>${artifactId}</finalName>
+    <defaultGoal>clean install</defaultGoal>
   </build>
 
   <dependencies>
