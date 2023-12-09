@@ -5,11 +5,25 @@
           https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
         name="base-archetype">
   <fileSets>
-    <fileSet filtered="true" packaged="true">
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/main/java</directory>
     </fileSet>
-    <fileSet>
+
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/test/java</directory>
+    </fileSet>
+
+    <fileSet encoding="UTF-8">
+      <directory/>
+      <excludes>
+        <exclude>src/**</exclude>
+        <exclude>pom.xml</exclude>
+      </excludes>
+      <includes>
+        <include>.gitignore</include>
+        <include>.sdkmanrc</include>
+        <include>README.adoc</include>
+      </includes>
     </fileSet>
   </fileSets>
 </archetype-descriptor>
